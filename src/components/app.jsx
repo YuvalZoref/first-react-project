@@ -1,7 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import giphy from 'giphy-api';
-
 import SearchBar from "./search_bar";
 import Gif from "./gif";
 import GifList from "./gif_list";
@@ -12,6 +11,7 @@ class App extends Component {
     this.state = {
       gifs: [],
       selectedGifId: "moWuFKv1ZKBvQ8vCtt"
+      // use selected gif id from above
     };
     this.search("");
   }
@@ -28,6 +28,12 @@ class App extends Component {
     });
   };
 
+  selectGif = (id) => {
+    this.setState({
+      selectedGifId: id
+    });
+  }
+
 
   render() {
     return (
@@ -39,7 +45,7 @@ class App extends Component {
           </div>
         </div>
         <div className="right-screen">
-          <GifList gifs={this.state.gifs} />
+          <GifList gifs={this.state.gifs} selectGif={this.selectGif} />
         </div>
       </div>
     );

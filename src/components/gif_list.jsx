@@ -4,7 +4,8 @@ import Gif from './gif';
 
 class GifList extends Component {
   renderList = () => {
-    return this.props.gifs.map(gif => <Gif id={gif.id} key={gif.id} />);
+    // eslint-disable-next-line max-len
+    return this.props.gifs.map(gif => <Gif id={gif.id} key={gif.id} selectGif={this.props.selectGif} />);
   }
 
   render() {
